@@ -1,11 +1,13 @@
 === Easy Related Random Posts ===
-Contributors: Boyd Duang
+Contributors: mrboydwp
 Donate link: https://ko-fi.com/boyduang
 Tags: related posts, random posts,similar posts,recent post, content, engagement
 Requires at least: 5.0
-Tested up to: 6.3.1
+Tested up to: 6.4.2
 Stable tag: 1.0
 Requires PHP: 5.6
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 == Description ==
 The Easy Related Random Posts plugin is a versatile tool that allows you to display related or random posts on your WordPress website with just a few simple steps. Whether you want to keep your visitors engaged by showing related content or add an element of surprise with random posts, this plugin has you covered.
@@ -17,10 +19,10 @@ The Easy Related Random Posts plugin is a versatile tool that allows you to disp
 
 == Frequently Asked Questions ==
 = How do I display related or random posts on my website? =
-You can use the `[easy_related_random_posts]` shortcode to display related or random posts in your posts or pages. Simply add the shortcode to the content editor where you want the posts to appear.
+You can use the `[errp_easy_related_random_posts]` shortcode to display related or random posts in your posts or pages. Simply add the shortcode to the content editor where you want the posts to appear.
 
 Example Shortcode:
-[easy_related_random_posts]
+[errp_easy_related_random_posts]
 
 
 = Can I customize the appearance and behavior of the related or random posts section? =

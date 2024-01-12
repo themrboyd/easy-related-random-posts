@@ -1,10 +1,16 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit;
 /*
-Plugin Name: Easy Related Random Posts (ERRP)
-Description: The Easy Related Random Posts plugin is a versatile tool that allows you to display related or random posts on your WordPress website with just a few simple steps. Whether you want to keep your visitors engaged by showing related content or add an element of surprise with random posts, this plugin has you covered.
-Version: 1.0
-Author: Boyd Duang
-*/
+ * Plugin Name: Easy Related Random Posts (ERRP)
+ * Description: The Easy Related Random Posts plugin is a versatile tool that allows you to display related or random posts on your WordPress website with just a few simple steps. Whether you want to keep your visitors engaged by showing related content or add an element of surprise with random posts, this plugin has you covered.
+ * Version:           1.0
+ * Requires at least: 5.6
+ * Requires PHP:      7.2
+ * Author:            Boyd Duang
+ * Author URI:        https://profiles.wordpress.org/mrboydwp/
+ * License:           GPL v2 or later
+ * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ */
 
 // Shortcode to display related or random posts
 function errp_related_random_posts_shortcode($atts) {
@@ -36,7 +42,7 @@ function errp_related_random_posts_shortcode($atts) {
             echo '<ul>';
             while ($query->have_posts()) {
                 $query->the_post();
-                echo '<li><a href="' . get_permalink() . '">' . get_the_title() . '</a></li>';
+                echo '<li><a href="' . esc_url(get_permalink()) . '">' . esc_html(get_the_title()) . '</a></li>';
             }
             echo '</ul>';
             echo '</div>';
@@ -79,7 +85,7 @@ function errp_related_random_posts_shortcode($atts) {
             echo '<ul>';
             while ($query->have_posts()) {
                 $query->the_post();
-                echo '<li><a href="' . get_permalink() . '">' . get_the_title() . '</a></li>';
+                echo '<li><a href="' . esc_url(get_permalink()) . '">' . esc_html(get_the_title()) . '</a></li>';
             }
             echo '</ul>';
             echo '</div>';
@@ -96,13 +102,13 @@ function errp_related_random_posts_shortcode($atts) {
     return $output;
 }
 
-add_shortcode('easy_related_random_posts', 'errp_related_random_posts_shortcode');
+add_shortcode('errp_easy_related_random_posts', 'errp_related_random_posts_shortcode');
  
 // Add a menu item under the Settings menu
 function errp_add_settings_menu() {
     add_options_page(
-        'Easy Related Random Posts Settings',
-        'Easy Related Random Posts',
+        'Easy Related Random Posts (ERRP) Settings',
+        'Easy Related Random Posts (ERRP)',
         'manage_options',
         'errp-settings',
         'errp_settings_page'
@@ -114,7 +120,7 @@ add_action('admin_menu', 'errp_add_settings_menu');
 function errp_settings_page() {
     ?>
     <div class="wrap">
-        <h2>Easy Related Random Posts Settings</h2>
+        <h2>Easy Related Random Posts (ERRP) Settings</h2>
 
         <form method="post" action="options.php">
             <?php
@@ -196,7 +202,7 @@ function errp_handle_cache_clearing() {
 
 // Callback function for the settings section
 function errp_settings_section_callback() {
-    echo 'Customize the display of related or random posts shortcode. <code>[easy_related_random_posts]</code>';
+    echo 'Customize the display of related or random posts shortcode. <code>[errp_easy_related_random_posts]</code>';
 }
 
 // Callback function for the headline field
